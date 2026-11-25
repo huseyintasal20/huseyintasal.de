@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="15 15 170 170">
+<style>
+  .n { stroke: #1E3A5F; } .nf { fill: #1E3A5F; }
+  .b { stroke: #B5763A; } .bf { fill: #B5763A; }
+  /* Dunkler Browser-Tab: Navy wird zu hellem Stahlblau, Bronze etwas heller */
+  @media (prefers-color-scheme: dark) {
+    .n { stroke: #9CC0EC; } .nf { fill: #9CC0EC; }
+    .b { stroke: #D9975A; } .bf { fill: #D9975A; }
+  }
+</style>
+<polyline class="n" points="92.2,24.5 30.7,60 30.7,140 92.2,175.5" fill="none" stroke-width="16"/>
+<polyline class="b" points="107.8,24.5 169.3,60 169.3,140 107.8,175.5" fill="none" stroke-width="16"/>
+<polygon class="nf" points="52,72 58,66 66,66 66,128 60,134 52,134"/>
+<polygon class="nf" points="82,72 88,66 96,66 96,128 90,134 82,134"/>
+<polygon class="nf" points="66,97 82,93 82,105 66,109"/>
+<polygon class="bf" points="104,72 110,66 148,66 141,80 104,80"/>
+<polygon class="bf" points="119,80 133,80 133,128 127,134 119,134"/>
+</svg>
