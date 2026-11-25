@@ -112,6 +112,44 @@
     }, 120));
   }
 
+  /* ---------- Hell/Dunkel-Knopf ----------
+     Standard: Einstellung des Geräts. Ein Klick wählt fest Hell oder Dunkel (wird gespeichert). */
+  var syncTheme = function () {};
+  function initTheme() {
+    var btns = $$(".theme-btn");
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    function current() {
+      var chosen = html.getAttribute("data-theme");
+      if (chosen === "light" || chosen === "dark") return chosen;
+      return mq && mq.matches ? "dark" : "light";
+    }
+    syncTheme = function () {
+      var now = current();
+      btns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-set-theme") === now));
+        var label = $(".visually-hidden", b);
+        if (label) b.setAttribute("title", label.textContent); // Tooltip mit Text beim Darüberfahren
+      });
+      // Farbe der Browserleiste (Handy) mitziehen, sobald fest gewählt wurde
+      if (html.hasAttribute("data-theme")) {
+        $$('meta[name="theme-color"]').forEach(function (m) { m.setAttribute("content", now === "dark" ? "#15120e" : "#f7f1e8"); });
+      }
+    };
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var next = b.getAttribute("data-set-theme");
+        html.setAttribute("data-theme", next);
+        store("ht-theme", next);
+        syncTheme();
+      });
+    });
+    if (mq) {
+      var onChange = function () { syncTheme(); };
+      if (mq.addEventListener) mq.addEventListener("change", onChange); else if (mq.addListener) mq.addListener(onChange);
+    }
+    syncTheme();
+  }
+
   /* ---------- Sprachen ---------- */
   var DE = {};
   var DE_ATTR = {};
@@ -159,6 +197,7 @@
     var toggle = $("#menu-toggle");
     var label = toggle && $(".visually-hidden", toggle);
     if (label) label.textContent = toggle.getAttribute("aria-expanded") === "true" ? t("menu_close") : t("menu_open");
+    syncTheme();
 
     store(STORAGE_LANG, lang);
   }
@@ -371,6 +410,7 @@
 
   initIntro();
   initHeader();
+  initTheme();
   initMenu();
   initLang();
   $$(".marquee").forEach(initMarquee);

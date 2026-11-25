@@ -7,7 +7,9 @@
   <meta name="description" content="Hüseyin Tasal (Huseyin Tasal) – Fachinformatiker für Systemintegration aus dem Raum Heilbronn. Windows Server, Active Directory, Linux, Netzwerke, Virtualisierung und IT-Sicherheit – mit kaufmännischem Hintergrund als Steuerberater und Geschäftsführer.">
   <meta name="author" content="Hüseyin Tasal">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#f7f1e8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f1e8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15120e" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://huseyintasal.de/">
 
   <!-- Social-Media-Vorschau (LinkedIn, Xing, WhatsApp) -->
@@ -48,6 +50,11 @@
       } catch (e) {
         d.classList.add("intro-on");
       }
+      /* Hell/Dunkel: gespeicherte Wahl vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+      try {
+        var th = localStorage.getItem("ht-theme");
+        if (th === "light" || th === "dark") d.setAttribute("data-theme", th);
+      } catch (e) {}
     })();
   </script>
 
@@ -93,7 +100,8 @@
         "hasCredential": [
           { "@type": "EducationalOccupationalCredential", "name": "Linux Essentials", "recognizedBy": { "@type": "Organization", "name": "Linux Professional Institute" } },
           { "@type": "EducationalOccupationalCredential", "name": "Networking Basics", "recognizedBy": { "@type": "Organization", "name": "Cisco Networking Academy" } },
-          { "@type": "EducationalOccupationalCredential", "name": "Introduction to Cybersecurity", "recognizedBy": { "@type": "Organization", "name": "Cisco Networking Academy" } }
+          { "@type": "EducationalOccupationalCredential", "name": "Introduction to Cybersecurity", "recognizedBy": { "@type": "Organization", "name": "Cisco Networking Academy" } },
+          { "@type": "EducationalOccupationalCredential", "name": "ITIL 4 Foundation in IT Service Management", "recognizedBy": { "@type": "Organization", "name": "PeopleCert" } }
         ],
         "sameAs": [
           "https://www.linkedin.com/in/hueseyin-tasal",
@@ -108,13 +116,13 @@
   <!-- ============ SVG-Symbole (Icons, einmal definiert, überall genutzt) ============ -->
   <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <symbol id="ht-mark" viewBox="15 15 170 170">
-      <polyline points="92.2,24.5 30.7,60 30.7,140 92.2,175.5" fill="none" stroke="#1E3A5F" stroke-width="12"/>
-      <polyline points="107.8,24.5 169.3,60 169.3,140 107.8,175.5" fill="none" stroke="#B5763A" stroke-width="12"/>
-      <polygon points="52,72 58,66 66,66 66,128 60,134 52,134" fill="#1E3A5F"/>
-      <polygon points="82,72 88,66 96,66 96,128 90,134 82,134" fill="#1E3A5F"/>
-      <polygon points="66,97 82,93 82,105 66,109" fill="#1E3A5F"/>
-      <polygon points="104,72 110,66 148,66 141,80 104,80" fill="#B5763A"/>
-      <polygon points="119,80 133,80 133,128 127,134 119,134" fill="#B5763A"/>
+      <polyline points="92.2,24.5 30.7,60 30.7,140 92.2,175.5" fill="none" style="stroke:var(--logo-navy,#1E3A5F)" stroke-width="12"/>
+      <polyline points="107.8,24.5 169.3,60 169.3,140 107.8,175.5" fill="none" style="stroke:var(--logo-bronze,#B5763A)" stroke-width="12"/>
+      <polygon points="52,72 58,66 66,66 66,128 60,134 52,134" style="fill:var(--logo-navy,#1E3A5F)"/>
+      <polygon points="82,72 88,66 96,66 96,128 90,134 82,134" style="fill:var(--logo-navy,#1E3A5F)"/>
+      <polygon points="66,97 82,93 82,105 66,109" style="fill:var(--logo-navy,#1E3A5F)"/>
+      <polygon points="104,72 110,66 148,66 141,80 104,80" style="fill:var(--logo-bronze,#B5763A)"/>
+      <polygon points="119,80 133,80 133,128 127,134 119,134" style="fill:var(--logo-bronze,#B5763A)"/>
     </symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
     <symbol id="i-xing" viewBox="0 0 24 24"><path fill="currentColor" d="M18.19 0c-.52 0-.74.33-.93.66 0 0-7.45 13.22-7.7 13.66.02.02 4.92 9.02 4.92 9.02.17.31.44.66.97.66h3.45c.21 0 .38-.08.46-.22.09-.15.09-.35-.01-.54l-4.88-8.92v-.02L22.14.76c.1-.19.1-.39.01-.54-.09-.14-.25-.22-.46-.22h-3.5zM3.65 4.74c-.21 0-.39.07-.47.22-.09.15-.08.34.02.53l2.34 4.05v.02L1.86 16.05c-.1.19-.09.38 0 .53.09.14.24.23.45.23h3.46c.52 0 .77-.35.95-.67l3.73-6.61-2.38-4.15c-.17-.32-.43-.66-.96-.66H3.65z"/></symbol>
@@ -139,6 +147,8 @@
     <symbol id="i-nas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7M8.5 11h7"/><circle cx="12" cy="16.5" r="1.2"/></g></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g></symbol>
     <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g></symbol>
     <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.2L7 21l5-2.6 5 2.6-1.5-7.8"/></g></symbol>
@@ -152,11 +162,11 @@
         <polyline class="intro-hex intro-hex-l" points="92.2,24.5 30.7,60 30.7,140 92.2,175.5" pathLength="1"/>
         <polyline class="intro-hex intro-hex-r" points="107.8,24.5 169.3,60 169.3,140 107.8,175.5" pathLength="1"/>
         <g class="intro-letters">
-          <polygon points="52,72 58,66 66,66 66,128 60,134 52,134" fill="#1E3A5F"/>
-          <polygon points="82,72 88,66 96,66 96,128 90,134 82,134" fill="#1E3A5F"/>
-          <polygon points="66,97 82,93 82,105 66,109" fill="#1E3A5F"/>
-          <polygon points="104,72 110,66 148,66 141,80 104,80" fill="#B5763A"/>
-          <polygon points="119,80 133,80 133,128 127,134 119,134" fill="#B5763A"/>
+          <polygon points="52,72 58,66 66,66 66,128 60,134 52,134" style="fill:var(--logo-navy)"/>
+          <polygon points="82,72 88,66 96,66 96,128 90,134 82,134" style="fill:var(--logo-navy)"/>
+          <polygon points="66,97 82,93 82,105 66,109" style="fill:var(--logo-navy)"/>
+          <polygon points="104,72 110,66 148,66 141,80 104,80" style="fill:var(--logo-bronze)"/>
+          <polygon points="119,80 133,80 133,128 127,134 119,134" style="fill:var(--logo-bronze)"/>
         </g>
       </svg>
       <div class="intro-word">
@@ -200,6 +210,15 @@
         <a class="icon-link hide-md" href="https://www.xing.com/profile/Hueseyin_Tasal" target="_blank" rel="noopener me" aria-label="Xing-Profil">
           <svg aria-hidden="true"><use href="#i-xing"/></svg>
         </a>
+        <!-- Hell/Dunkel-Schalter: beide Symbole sichtbar, das aktive ist hervorgehoben -->
+        <div class="theme-switch" id="theme-switch" role="group" aria-label="Design">
+          <button type="button" class="theme-btn" data-set-theme="light" aria-pressed="false">
+            <svg aria-hidden="true"><use href="#i-sun"/></svg><span class="visually-hidden" data-i18n="theme_light">Helles Design</span>
+          </button>
+          <button type="button" class="theme-btn" data-set-theme="dark" aria-pressed="false">
+            <svg aria-hidden="true"><use href="#i-moon"/></svg><span class="visually-hidden" data-i18n="theme_dark">Dunkles Design</span>
+          </button>
+        </div>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
           <span class="visually-hidden" data-i18n="menu_open">Menü öffnen</span>
           <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -323,7 +342,7 @@
           <article class="skill-group">
             <h3><svg aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="sk_sec">Sicherheit &amp; Betrieb</span></h3>
             <ul class="tags">
-              <li data-i18n="sk_backup">Backup-Konzept 3-2-1</li><li>Monitoring (Zabbix)</li><li data-i18n="sk_fw">Firewall-Grundlagen</li><li>Pi-hole DNS-Filter</li><li data-i18n="sk_agdlp">Berechtigungen (AGDLP)</li><li>Cybersecurity Basics</li>
+              <li data-i18n="sk_backup">Backup-Konzept 3-2-1</li><li>Monitoring (Zabbix)</li><li data-i18n="sk_fw">Firewall-Grundlagen</li><li>Pi-hole DNS-Filter</li><li data-i18n="sk_agdlp">Berechtigungen (AGDLP)</li><li>Cybersecurity Basics</li><li>ITIL 4 Service Management</li>
             </ul>
           </article>
           <article class="skill-group">
@@ -637,6 +656,32 @@
                 <p class="cert-meta" data-i18n="c_cert">Zertifiziert</p>
               </div>
             </li>
+            <!-- ITIL 4 Foundation (Bild: Service-Kreislauf) -->
+            <li class="cert">
+              <div class="cert-art art-itil" aria-hidden="true">
+                <svg viewBox="0 0 240 128" focusable="false">
+                  <g class="a-cycle">
+                    <path class="a-arc-n" d="M126.25 28.55A36 36 0 0 1 155.45 57.75"/>
+                    <path class="a-arc-b" d="M155.45 70.25A36 36 0 0 1 126.25 99.45"/>
+                    <path class="a-arc-n" d="M113.75 99.45A36 36 0 0 1 84.55 70.25"/>
+                    <path class="a-arc-b" d="M84.55 57.75A36 36 0 0 1 113.75 28.55"/>
+                  </g>
+                  <path class="a-navy" d="M156.14 61.69L150.82 54.5L158.7 53.12z"/>
+                  <path class="a-bronze" d="M122.31 100.14L129.5 94.82L130.88 102.7z"/>
+                  <path class="a-navy" d="M83.86 66.31L89.18 73.5L81.3 74.88z"/>
+                  <path class="a-bronze" d="M117.69 27.86L110.5 33.18L109.12 25.3z"/>
+                  <circle class="a-navy" cx="120" cy="64" r="18"/>
+                  <path class="a-white-line a-check" d="M111.5 64.5l5.5 5.5 11.5-11.5"/>
+                  <g class="a-device"><rect x="22" y="30" width="44" height="26" rx="4"/><path d="M30 39h28M30 47h18"/></g>
+                  <g class="a-device"><rect x="174" y="72" width="44" height="26" rx="4"/><path d="M182 81h28M182 89h18"/></g>
+                </svg>
+              </div>
+              <div class="cert-body">
+                <p class="cert-issuer" lang="en">PeopleCert · AXELOS</p>
+                <h3 lang="en">ITIL 4 Foundation in IT Service Management</h3>
+                <p class="cert-meta" data-i18n="c_cert">Zertifiziert</p>
+              </div>
+            </li>
             <!-- Microsoft Azure AZ-104 – Prüfung noch offen -->
             <li class="cert">
               <div class="cert-art art-cloud" aria-hidden="true">
@@ -817,7 +862,8 @@
   <footer class="site-footer">
     <div class="wrap footer-row">
       <a class="footer-logo" href="#home" aria-label="Nach oben">
-        <img src="assets/logo/ht-logo-komplett-farbig.svg" alt="Hüseyin Tasal – IT-Systemintegration" width="216" height="54" loading="lazy">
+        <img class="logo-light" src="assets/logo/ht-logo-komplett-farbig.svg" alt="Hüseyin Tasal – IT-Systemintegration" width="216" height="54" loading="lazy">
+        <img class="logo-dark" src="assets/logo/ht-logo-komplett-fuer-dunklen-hintergrund.svg" alt="Hüseyin Tasal – IT-Systemintegration" width="216" height="54" loading="lazy">
       </a>
       <nav class="footer-nav" aria-label="Rechtliches">
         <a href="impressum.html" data-i18n="ft_imprint">Impressum</a>

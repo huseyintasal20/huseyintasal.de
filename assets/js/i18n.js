@@ -11,6 +11,8 @@ window.HT_I18N = {
       title: "Hüseyin Tasal – Fachinformatiker Systemintegration | Heilbronn",
       menu_open: "Menü öffnen",
       menu_close: "Menü schließen",
+      theme_to_dark: "Zum dunklen Design wechseln",
+      theme_to_light: "Zum hellen Design wechseln",
       form_ok: "Vielen Dank! Ihre Nachricht ist angekommen. Ich melde mich zeitnah bei Ihnen.",
       form_err: "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie mir über LinkedIn.",
       form_invalid: "Bitte prüfen Sie die markierten Felder."
@@ -19,6 +21,8 @@ window.HT_I18N = {
       title: "Hüseyin Tasal – IT Specialist for System Integration | Heilbronn, Germany",
       menu_open: "Open menu",
       menu_close: "Close menu",
+      theme_to_dark: "Switch to dark theme",
+      theme_to_light: "Switch to light theme",
       form_ok: "Thank you! Your message has arrived. I will get back to you shortly.",
       form_err: "Your message could not be sent. Please try again later or contact me via LinkedIn.",
       form_invalid: "Please check the highlighted fields."
@@ -27,6 +31,8 @@ window.HT_I18N = {
       title: "Hüseyin Tasal – Sistem Entegrasyonu Bilişim Uzmanı | Heilbronn, Almanya",
       menu_open: "Menüyü aç",
       menu_close: "Menüyü kapat",
+      theme_to_dark: "Koyu temaya geç",
+      theme_to_light: "Açık temaya geç",
       form_ok: "Teşekkürler! Mesajınız ulaştı. En kısa sürede size dönüş yapacağım.",
       form_err: "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin veya bana LinkedIn üzerinden yazın.",
       form_invalid: "Lütfen işaretli alanları kontrol edin."
@@ -42,6 +48,8 @@ window.HT_I18N = {
     nav_career: "Career",
     nav_contact: "Contact",
     menu_open: "Open menu",
+    theme_light: "Light theme",
+    theme_dark: "Dark theme",
 
     hero_role: "IT Specialist for System Integration – with a business foundation.",
     hero_lead: "I make sure servers, networks and services run reliably – and I document my work so others can pick it up immediately. Before moving into IT, I was a certified tax advisor and a managing director. I bring that experience to every project.",
@@ -212,6 +220,8 @@ window.HT_I18N = {
     nav_career: "Kariyer",
     nav_contact: "İletişim",
     menu_open: "Menüyü aç",
+    theme_light: "Açık tema",
+    theme_dark: "Koyu tema",
 
     hero_role: "Sistem Entegrasyonu Bilişim Uzmanı – sağlam bir ticari altyapıyla.",
     hero_lead: "Sunucuların, ağların ve servislerin sorunsuz çalışmasını sağlıyorum ve yaptığım işi, başkalarının hemen devam edebileceği şekilde belgeliyorum. Bilişime geçmeden önce Serbest Muhasebeci Mali Müşavir ve genel müdürdüm. Bu deneyimi her projeye taşıyorum.",
